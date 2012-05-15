@@ -8,7 +8,7 @@ public class Extraction {
 	
 	public static double input()  {
 	    Scanner scan = new Scanner(System.in);
-	    System.out.println("Version 2\nInsert a decimal number, which you want to convert to roman: ");
+	    System.out.println("Insert a decimal number, which you want to convert to roman: ");
 	    return scan.nextDouble();
   	}
 	
