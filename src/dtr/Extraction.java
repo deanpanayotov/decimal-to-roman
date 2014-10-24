@@ -12,14 +12,14 @@ public class Extraction {
 	    return scan.nextDouble();
   	}
 	
-	public static int pow(int base, int a){
+	public static int pow(int base, int power){
 		int r=1;
-		for(int x=0;x<a;x++) r*=base;
+		for(int x=0;x<power;x++) r*=base;
 		return r;
 	}
 	
-	public static int Extract(double decimal){
-		double dec=decimal;
+	public static int extractFraction(double decimalNumber){
+		double dec=decimalNumber;
 		double dec2=dec;
 		int i=0;
 		
@@ -31,8 +31,8 @@ public class Extraction {
 		}
    }
 	
-	public static void ExtractAndConvert(double decimal){
+	public static void decimalToRoman(double decimal){
 		Convertion c=new Convertion();
-		System.out.print("\nOriginal number:"+decimal+"\nNumber in roman:"+c.convert((int)decimal)+","+(c.convert(Extract(decimal))).toLowerCase()+"\n");
+		System.out.print("\nOriginal number:"+decimal+"\nNumber in roman:"+c.convert((int)decimal)+","+(c.convert(extractFraction(decimal))).toLowerCase()+"\n");
 	}
 }
