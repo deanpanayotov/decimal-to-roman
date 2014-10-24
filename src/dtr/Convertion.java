@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Convertion {
-	public Convertion(){
-		
-	}
 	public static String convert(int number){
-  		int n=number;
   		String result = new String("");
   		System.out.println("Number to convert: "+number);
   		
@@ -32,8 +28,8 @@ public class Convertion {
 		Iterator<RomanNumberMapping> itr = rList.iterator();
 		RomanNumberMapping rN= itr.next();
 		while(true){
-			if(n>=rN.getValue()){
-				n-=rN.getValue();
+			if(number>=rN.getValue()){
+				number-=rN.getValue();
 				result+=rN.getSymbol();
 			}else if(itr.hasNext()){
 				rN=itr.next();
