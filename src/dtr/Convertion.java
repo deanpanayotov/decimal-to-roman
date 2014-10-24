@@ -1,19 +1,15 @@
 package dtr;
 
-import java.util.Iterator;
 import java.util.Map.Entry;
 
 public class Convertion {
 	public static String convert(int number) {
 		StringBuilder stringBuilder = new StringBuilder();
-		Iterator<Entry<String, Integer>> iterator = RomanNumbersMapping
-				.getMap().entrySet().iterator();
-		Entry<String, Integer> rN;
-		while (iterator.hasNext()) {
-			rN = iterator.next();
-			while (number >= rN.getValue()) {
-				number -= rN.getValue();
-				stringBuilder.append(rN.getKey());
+		for (Entry<String, Integer> romanDigit : RomanDigitsMapping.getMap()
+				.entrySet()) {
+			while (number >= romanDigit.getValue()) {
+				number -= romanDigit.getValue();
+				stringBuilder.append(romanDigit.getKey());
 			}
 		}
 		return stringBuilder.toString();

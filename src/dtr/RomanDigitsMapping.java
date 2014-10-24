@@ -3,7 +3,7 @@ package dtr;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class RomanNumbersMapping {
+public class RomanDigitsMapping {
 	private static Map<String, Integer> map;
 
 	public static Map<String, Integer> getMap() {
