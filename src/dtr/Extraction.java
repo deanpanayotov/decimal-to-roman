@@ -7,18 +7,11 @@ public class Extraction {
 	public Extraction() {
 	}
 
-	public static double input() {
+	public static double readDouble() {
 		Scanner scan = new Scanner(System.in);
 		System.out
 				.println("Insert a decimal number, which you want to convert to roman: ");
 		return scan.nextDouble();
-	}
-
-	public static int pow(int base, int power) {
-		int r = 1;
-		for (int x = 0; x < power; x++)
-			r *= base;
-		return r;
 	}
 
 	public static int extractFraction(double decimalNumber) {
@@ -30,7 +23,7 @@ public class Extraction {
 			dec *= 10;
 			i++;
 			if (dec % 1 == 0)
-				return (int) (dec % (Math.max((int) (dec2), 1) * pow(10, i)));
+				return (int) (dec % (Math.max((int) (dec2), 1) * Math.pow(10, i)));
 		}
 	}
 
