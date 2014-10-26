@@ -38,9 +38,8 @@ public class DecimalToRoman {
 	}
 
 	public static void decimalToRoman(double decimal) {
-		DecimalToRoman c = new DecimalToRoman();
 		System.out.print("\nOriginal number:" + decimal + "\nNumber in roman:"
-				+ c.convert((int) decimal) + ","
-				+ (c.convert(extractFraction(decimal))).toLowerCase() + "\n");
+				+ convert((int) decimal) + ","
+				+ (convert(extractFraction(decimal))).toLowerCase() + "\n");
 	}
 }
