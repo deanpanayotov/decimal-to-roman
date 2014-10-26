@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Map.Entry;
 
 public class DecimalToRoman {
-	public static String convert(int number) {
+	public static String convert(long number) {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (Entry<String, Integer> romanDigit : RomanDigitsMapping.getMap()
 				.entrySet()) {
@@ -15,7 +15,7 @@ public class DecimalToRoman {
 		}
 		return stringBuilder.toString();
 	}
-	
+
 	public static double readDouble() {
 		Scanner scan = new Scanner(System.in);
 		System.out
@@ -23,23 +23,27 @@ public class DecimalToRoman {
 		return scan.nextDouble();
 	}
 
-	public static int extractFraction(double decimalNumber) {
-		double dec = decimalNumber;
-		double dec2 = dec;
-		int i = 0;
-
-		for (;;) {
-			dec *= 10;
-			i++;
-			if (dec % 1 == 0)
-				return (int) (dec % (Math.max((int) (dec2), 1) * Math
-						.pow(10, i)));
-		}
+	public static void decimalToRoman(double decimal) {
+		String decimalAsString = decimalToString(decimal);
+		System.out.print("\nOriginal number:" + decimal + "\nNumber in roman:"
+				+ convert(extractIntegral(decimal)) + ","
+				+ (convert(extractFraction(decimalAsString))).toLowerCase()
+				+ "\n");
 	}
 
-	public static void decimalToRoman(double decimal) {
-		System.out.print("\nOriginal number:" + decimal + "\nNumber in roman:"
-				+ convert((int) decimal) + ","
-				+ (convert(extractFraction(decimal))).toLowerCase() + "\n");
+	private static String decimalToString(double decimal) {
+		String decimalAsString = String.format("%f", decimal);
+		decimalAsString = (decimalAsString.indexOf(",") >= 0 ? decimalAsString
+				.replaceAll("\\.?0+$", "") : decimalAsString);
+		return decimalAsString;
+	}
+
+	private static long extractFraction(String decimalAsString) {
+		return Long.parseLong(decimalAsString.substring(
+				decimalAsString.indexOf(',') + 1, decimalAsString.length()));
+	}
+
+	private static long extractIntegral(double decimal) {
+		return (long) decimal;
 	}
 }
