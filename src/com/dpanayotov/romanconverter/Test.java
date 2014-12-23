@@ -38,7 +38,7 @@ public class Test {
 //		e.decimalToRoman(33.11);
 //		e.decimalToRoman(123.456);
 //		e.decimalToRoman(444.12);
-		RomanConverter.decimalToRoman(18.543);
+		RomanConverter.decimalToRoman(18543);
 //		e.decimalToRoman(84);
 
 	}
