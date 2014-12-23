@@ -1,4 +1,4 @@
-package dtr;
+package com.dpanayotov.romanconverter;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
