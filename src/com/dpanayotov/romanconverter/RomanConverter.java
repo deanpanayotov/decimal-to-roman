@@ -32,11 +32,14 @@ public class RomanConverter {
 		List<Entry<String, Integer>> list = new ArrayList<>(RomanDigitsMapping
 				.getMap().entrySet());
 		Collections.reverse(list);
-		for (Entry<String, Integer> romanDigit : list) {
-			while (sb.length()>0 && sb.lastIndexOf(romanDigit.getKey()) == sb.length()
+		outer: for (Entry<String, Integer> romanDigit : list) {
+			while (sb.lastIndexOf(romanDigit.getKey()) == sb.length()
 					- romanDigit.getKey().length()) {
 				result += romanDigit.getValue();
 				sb.setLength(sb.length() - romanDigit.getKey().length());
+				if(sb.length()==0){
+					break outer;
+				}
 			}
 		}
 		return result;

@@ -1,12 +1,14 @@
 package com.dpanayotov.romanconverter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Test {
-	
+
 	private static final String REGEX_ROMAN = "^M{0,9}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})";
 	private static final String REGEX_INTEGER = "^\\d+$";
-	
+
 	public static int readInteger() {
 		String line = readRegex(
 				"Please input an integer, which you want to convert to roman: ",
@@ -33,17 +35,20 @@ public class Test {
 		scanner.close();
 		return line;
 	}
-	
+
+	private static long[] listDecimal = { 44, 317, 900, 9543, 9888 };
+
 	public static void main(String[] args) {
-//		e.decimalToRoman(33.11);
-//		e.decimalToRoman(123.456);
-//		e.decimalToRoman(444.12);
-		System.out.println(RomanConverter.decimalToRoman(9543));
-		System.out.println(RomanConverter.decimalToRoman(9888));
-		System.out.println(RomanConverter.romanToDecimal(RomanConverter.decimalToRoman(9543)));
-		System.out.println(RomanConverter.romanToDecimal(RomanConverter.decimalToRoman(9888)));
-
-//		e.decimalToRoman(84);
-
+		System.out.println("Some preset examples:\n");
+		String[] listRoman = new String[listDecimal.length];
+		for (int i = 0; i < listDecimal.length; i++) {
+			listRoman[i] = RomanConverter.decimalToRoman(listDecimal[i]);
+			System.out.println(listDecimal[i] + " is " + listRoman[i]);
+		}
+		System.out.println("\nNow reversed:\n");
+		for (int i = 0; i < listRoman.length; i++) {
+			System.out.println(listRoman[i] + " is "
+					+ RomanConverter.romanToDecimal(listRoman[i]));
+		}
 	}
 }
