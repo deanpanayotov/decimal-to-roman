@@ -1,4 +1,6 @@
-package com.dpanayotov.romanconverter;
+package com.dpanayotov.romanconverter.test;
+
+import com.dpanayotov.romanconverter.RomanConverter;
 
 public class Test {
 
