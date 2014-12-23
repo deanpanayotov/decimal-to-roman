@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
-
 public class RomanConverter {
 
 	private static final String REGEX_ROMAN = "^M{0,9}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})";
@@ -33,11 +32,12 @@ public class RomanConverter {
 				.getMap().entrySet());
 		Collections.reverse(list);
 		outer: for (Entry<String, Integer> romanDigit : list) {
-			while (sb.lastIndexOf(romanDigit.getKey()) == sb.length()
-					- romanDigit.getKey().length()) {
+			while (sb.length() >= romanDigit.getKey().length()
+					&& sb.lastIndexOf(romanDigit.getKey()) == sb.length()
+							- romanDigit.getKey().length()) {
 				result += romanDigit.getValue();
 				sb.setLength(sb.length() - romanDigit.getKey().length());
-				if(sb.length()==0){
+				if (sb.length() == 0) {
 					break outer;
 				}
 			}
