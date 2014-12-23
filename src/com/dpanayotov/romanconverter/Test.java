@@ -36,7 +36,7 @@ public class Test {
 		return line;
 	}
 
-	private static long[] listDecimal = { 44, 317, 900, 9543, 9888 };
+	private static long[] listDecimal = { 44, 317, 900, 1543, 4888, 5000 };
 
 	public static void main(String[] args) {
 		System.out.println("Some preset examples:\n");
