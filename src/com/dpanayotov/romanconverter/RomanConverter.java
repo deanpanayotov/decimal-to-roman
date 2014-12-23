@@ -1,6 +1,10 @@
 package com.dpanayotov.romanconverter;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map.Entry;
+
 
 public class RomanConverter {
 
@@ -16,5 +20,25 @@ public class RomanConverter {
 			}
 		}
 		return stringBuilder.toString();
+	}
+
+	public static long romanToDecimal(String roman) {
+		if (!roman.matches(REGEX_ROMAN)) {
+			throw new IllegalArgumentException(
+					"The provided string argument is not a valid roman number!");
+		}
+		long result = 0;
+		StringBuilder sb = new StringBuilder(roman);
+		List<Entry<String, Integer>> list = new ArrayList<>(RomanDigitsMapping
+				.getMap().entrySet());
+		Collections.reverse(list);
+		for (Entry<String, Integer> romanDigit : list) {
+			while (sb.length()>0 && sb.lastIndexOf(romanDigit.getKey()) == sb.length()
+					- romanDigit.getKey().length()) {
+				result += romanDigit.getValue();
+				sb.setLength(sb.length() - romanDigit.getKey().length());
+			}
+		}
+		return result;
 	}
 }
