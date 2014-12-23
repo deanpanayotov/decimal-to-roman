@@ -9,7 +9,11 @@ public class RomanConverter {
 
 	private static final String REGEX_ROMAN = "^M{0,9}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})";
 
-	public static String decimalToRoman(long decimal) {
+	public static String decimalToRoman(int decimal) {
+		if (decimal<1 || decimal>5000) {
+			throw new IllegalArgumentException(
+					"The provided int argument should be in the range 1-5000!");
+		}
 		StringBuilder stringBuilder = new StringBuilder();
 		for (Entry<String, Integer> romanDigit : RomanDigitsMapping.getMap()
 				.entrySet()) {

@@ -1,7 +1,5 @@
 package com.dpanayotov.romanconverter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Test {
@@ -36,7 +34,7 @@ public class Test {
 		return line;
 	}
 
-	private static long[] listDecimal = { 44, 317, 900, 1543, 4888, 5000 };
+	private static int[] listDecimal = { 44, 317, 900, 1543, 4888, 5000 };
 
 	public static void main(String[] args) {
 		System.out.println("Some preset examples:\n");
