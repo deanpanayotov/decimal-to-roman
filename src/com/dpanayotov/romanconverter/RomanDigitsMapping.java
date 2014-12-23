@@ -9,7 +9,6 @@ public class RomanDigitsMapping {
 	public static Map<String, Integer> getMap() {
 		if (map == null) {
 			map = new LinkedHashMap<>();
-			map.put("MMMMMMMMMM", 10000);
 			map.put("M", 1000);
 			map.put("CM", 900);
 			map.put("D", 500);
