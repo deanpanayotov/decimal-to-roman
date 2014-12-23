@@ -4,9 +4,8 @@ import com.dpanayotov.romanconverter.RomanConverter;
 
 public class Test {
 
-	private static int[] listDecimal = { 44, 317, 900, 1543, 4888, 5000 };
-
 	public static void main(String[] args) {
+		int[] listDecimal = { 44, 317, 900, 1543, 4888, 5000 };
 		System.out.println("Some preset examples:\n");
 		String[] listRoman = new String[listDecimal.length];
 		for (int i = 0; i < listDecimal.length; i++) {
